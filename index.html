@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zhoutonglx.github.io"></form>
@@ -88,12 +88,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>This time we will scratch pictures on [<a href="http://mm.taobao.com" target="_blank" rel="external">http://mm.taobao.com</a>]  why? Because,it has so many beauties. Let’s have a look</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> urllib</div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"></div><div class="line">res = urllib.request.urlopen(<span class="string">'http://mm.taobao.com'</span>)</div><div class="line"></div><div class="line">res = res.read()</div><div class="line">	soup = BeautifulSoup(res)</div><div class="line">	res = soup.find_all(<span class="string">'img'</span>)</div><div class="line">	i = <span class="number">0</span></div><div class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> res:</div><div class="line">		t = x.get(<span class="string">'data-ks-lazyload'</span>)</div><div class="line">			<span class="keyword">if</span> t <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">					t = x.get(<span class="string">'src'</span>)</div><div class="line">						<span class="keyword">if</span> <span class="string">'http'</span> <span class="keyword">not</span> <span class="keyword">in</span> t:</div><div class="line">								t = t.strip(<span class="string">' '</span>)</div><div class="line">										t = <span class="string">'http:'</span>+t</div><div class="line">											pic = urllib.request.urlopen(t)</div><div class="line">		<span class="keyword">with</span> open(<span class="string">'/home/zhoutonglx/Desktop/mm/'</span>+str(i)+<span class="string">'.jpg'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">				f.write(pic.read())</div><div class="line">			i+=<span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> urllib</div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"></div><div class="line">res = urllib.request.urlopen(<span class="string">'http://mm.taobao.com'</span>)</div><div class="line"></div><div class="line">res = res.read()</div><div class="line">soup = BeautifulSoup(res)</div><div class="line">res = soup.find_all(<span class="string">'img'</span>)</div><div class="line">i = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> res:</div><div class="line">	t = x.get(<span class="string">'data-ks-lazyload'</span>)</div><div class="line">	<span class="keyword">if</span> t <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">		t = x.get(<span class="string">'src'</span>)</div><div class="line">	<span class="keyword">if</span> <span class="string">'http'</span> <span class="keyword">not</span> <span class="keyword">in</span> t:</div><div class="line">		t = t.strip(<span class="string">' '</span>)</div><div class="line">		t = <span class="string">'http:'</span>+t</div><div class="line">	pic = urllib.request.urlopen(t)</div><div class="line">	<span class="keyword">with</span> open(<span class="string">'/home/zhoutonglx/Desktop/mm/'</span>+str(i)+<span class="string">'.jpg'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">		f.write(pic.read())</div><div class="line">		i+=<span class="number">1</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://zhoutonglx.github.io/2016/08/21/crawler-on-picture/" data-id="cis3iezr90000axssfgb4mjgu" class="article-share-link">Partager</a>
+      <a data-url="http://zhoutonglx.github.io/2016/08/21/crawler-on-picture/" data-id="cis3ijjqk0001z9ss1i61siqj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://zhoutonglx.github.io/2016/08/19/send-email/" data-id="cis3iezsx0003axsskya20pan" class="article-share-link">Partager</a>
+      <a data-url="http://zhoutonglx.github.io/2016/08/19/send-email/" data-id="cis3ijjqv0003z9ss3xxv9pr0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://zhoutonglx.github.io/2016/08/19/login-weibo/" data-id="cis3iezrj0001axssdlfesat1" class="article-share-link">Partager</a>
+      <a data-url="http://zhoutonglx.github.io/2016/08/19/login-weibo/" data-id="cis3ijjqq0002z9ss9mcyji8d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -207,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://zhoutonglx.github.io/2016/08/12/change-html-tages/" data-id="cis3iezrp0002axssjw2zfifp" class="article-share-link">Partager</a>
+      <a data-url="http://zhoutonglx.github.io/2016/08/12/change-html-tages/" data-id="cis3ijjq90000z9ss7yztc3hj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -242,7 +242,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -275,7 +275,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
