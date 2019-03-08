@@ -12,6 +12,13 @@
         color: #eee9dc;
         background: #48b379;
       }
+
+      h2 {
+        margin: 3em 0 0 0;
+        font-size: 1.5em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
       .text-left {
         text-align: left;
       }
@@ -25,6 +32,13 @@
       #timeline {
         list-style: none;
         margin: 50px 0 30px 120px;
+        padding-left: 30px;
+        border-left: 8px solid #eee9dc;
+      }
+
+      #timeline li {
+        margin: 40px 0;
+        position: relative;
       }
 
       #timeline p {
@@ -121,7 +135,7 @@
         transform: translateX(20px);
         transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
       }
-      .radio:checked p { 
+      .radio:checked ~ .content p { 
         max-height: 200px;
         color: #eee9dc;
         transition: color 0.3s linear 0.3s;
@@ -129,36 +143,7 @@
 
 
       @media screen and (max-width: 767px) {
-        .content {
-          padding-top:45px;
-          border-color: #eee9dc;
-        }
-        .content:before, .content:after {
-          border: solid transparent;
-          top: -16px;
-          left: 50px;
-          margin-left: -17px;
-        }
-        .content:before {
-          border-bottom-color: inherit;
-          border-width: 17px;
-          top: -16px;
-          margin-left: -17px;
-        }
-        .content:after {
-          border-bottom-color: #48b379;
-          border-width: 20px;
-          top: -20px;
-          left: 50px;
-          margin-left: -20px;
-        }
-        .content p {
-          font-size: 0.9em;
-          line-height: 1.4;
-        }
-        .circle, .date {
-          display: none;
-        }
+        
       }
     </style>
   </head>
@@ -183,17 +168,32 @@
         <p>In me the tiger, sniffs the rose</p>
         <div>
           <ul id="timeline">
-            <input class="radio" id="event_1" name="life" type="radio" checked>
-            <div class="relative">
-              <label for="event_1"></label>
-              <span class="date">June 2013</span>
-              <span class="cirlce"></span>
-            </div>
-            <div class="content">
-              <p>
-                Study at Zhejiang Sci-Tech Technology University. Major in computer science and information technology.
-              </p>
-            </div>
+            <li>
+              <input class="radio" id="event_2" name="life" type="radio" checked>
+              <div class="relative">
+                <label for="event_2">Intern in Hangzhou Huuwoo Network Science Lto.Td</label>
+                <span class="date">Feb 2016</span>
+                <span class="circle"></span>
+              </div>
+              <div class="content">
+                <p>
+                    Intern in Hangzhou Huuwoo Network Science Lto.Td
+                </p>
+              </div>
+            </li>
+            <li>
+              <input class="radio" id="event_1" name="life" type="radio">
+              <div class="relative">
+                <label for="event_1">Study as Zhejiang Sci-Tech Technology University</label>
+                <span class="date">June 2013</span>
+                <span class="cirlce"></span>
+              </div>
+              <div class="content">
+                <p>
+                  Study at Zhejiang Sci-Tech Technology University. Major in computer science and information technology.
+                </p>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
